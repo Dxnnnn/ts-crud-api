@@ -11,6 +11,7 @@ export interface UserAttributes {
     firstName: string;
     lastName: string;
     role: string;
+    phoneNumber?: string;
     createdAt: Date;
     updatedAt: Date;
 }
@@ -68,6 +69,10 @@ export default function (sequelize: Sequelize): typeof User {
             role: {
                 type: DataTypes.STRING,
                 allowNull: false,
+            },
+            phoneNumber: {
+                type: DataTypes.STRING,
+                allowNull: true,
             },
             createdAt: {
                 type: DataTypes.DATE,
