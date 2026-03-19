@@ -59,6 +59,7 @@ function createSchema(req: Request, res: Response, next: NextFunction): void {
         password: Joi.string().min(6).required(),
         confirmPassword: Joi.string().valid(Joi.ref ('password')).required(),
         phoneNumber: Joi.string().min(10).empty(),
+        
     });
     validateRequest(req, next, schema);
 }

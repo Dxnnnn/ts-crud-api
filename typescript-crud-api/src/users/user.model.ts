@@ -34,6 +34,11 @@ implements UserAttributes {
     public role!: string;
     public readonly createdAt!: Date;
     public readonly updatedAt!: Date;
+
+    static associate(db:any) {
+        db.User.hasOne(db.Employee, { foreignKey: 'userId', as: 'employee' });
+        db.User.hasMany(db.Request, { foreignKey: 'userId', as: 'requests' });
+    }
 }
 
 // Export the model initializer function
